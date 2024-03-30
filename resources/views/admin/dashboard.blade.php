@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
+    <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -66,10 +67,9 @@
 @endsection
 
 @section('script')
-    <!-- jQuery -->
-    <script src="{{ asset('admin-assets/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="/admin-assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="/admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('admin-assets/js/adminlte.min.js') }}"></script>
+    <script src="/admin-assets/js/adminlte.min.js"></script>
 @endsection
