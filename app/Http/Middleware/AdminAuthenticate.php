@@ -16,6 +16,7 @@ class AdminAuthenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        // Redirect to the admin login page if the request is not expecting JSON
         return $request->expectsJson() ? null : route('admin.login');
     }
 
@@ -25,14 +26,18 @@ class AdminAuthenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @param  string[]  ...$guards
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function handle($request, Closure $next,  ...$guards)
+    public function handle($request, Closure $next, ...$guards)
     {
+        // Check if the user is authenticated with the admin guard
         if ($this->auth->guard('admin')->check()) {
-            return $this->auth->shouldUse('admin');
+            // If authenticated, set the guard to admin
+            $this->auth->shouldUse('admin');
+            return $next($request);
         }
 
-        return $this->unauthenticated($request, ['admin']);
+        // If not authenticated, redirect to the admin login page
+        return $this->unauthenticated($request, $guards);
     }
 }
