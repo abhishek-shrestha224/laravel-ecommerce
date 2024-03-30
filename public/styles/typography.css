@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/Gilroy.ttf");
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: "Gilroy", sans-serif;
+    line-height: 1.618;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Catamaran";
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+em,
+strong {
+    font-style: normal;
+    font-weight: normal;
+}

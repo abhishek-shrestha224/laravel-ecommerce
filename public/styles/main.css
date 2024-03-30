@@ -1,0 +1,13 @@
+:root {
+    --dark-color: #1a2238;
+    --light-color: #f1f1e6;
+    --accent-color: #f0446b;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
