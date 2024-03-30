@@ -1,13 +1,51 @@
-:root {
-    --dark-color: #1a2238;
-    --light-color: #f1f1e6;
-    --accent-color: #f0446b;
-}
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
 
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/Gilroy.ttf");
+}
 *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Catamaran";
+}
+body {
+    font-family: "Gilroy", sans-serif;
+    color: var(--light-color);
+    background: var(--dark-color);
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+em,
+strong {
+    font-style: normal;
+    font-weight: normal;
+}
+:root {
+    --dark-color: #1a2238;
+    --light-color: #f1f1e6;
+    --accent-color: #f0446b;
 }
