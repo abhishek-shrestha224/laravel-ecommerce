@@ -14,25 +14,25 @@
                 <!-- Add icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.html">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="categories.html">
+                    <a class="nav-link" href="{{ route('categories.index') }}">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>Category</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="subcategory.html">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>Sub Category</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="brands.html">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <svg class="nav-icon h-6 w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -43,39 +43,39 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="products.html">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <i class="nav-icon fas fa-tag"></i>
                         <p>Products</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <!-- <i class="nav-icon fas fa-tag"></i> -->
                         <i class="fas fa-truck nav-icon"></i>
                         <p>Shipping</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="orders.html">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <i class="nav-icon fas fa-shopping-bag"></i>
                         <p>Orders</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="discount.html">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <i class="nav-icon fa fa-percent" aria-hidden="true"></i>
                         <p>Discount</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="users.html">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>Users</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages.html">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <i class="nav-icon far fa-file-alt"></i>
                         <p>Pages</p>
                     </a>

@@ -9,7 +9,7 @@
                     <h1>Categories</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a class="btn btn-primary" href="create-category.html">New Category</a>
+                    <a class="btn btn-primary" href="{{ route('categories.create') }}">New Category</a>
                 </div>
             </div>
         </div>

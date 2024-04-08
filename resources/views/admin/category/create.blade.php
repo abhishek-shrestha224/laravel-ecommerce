@@ -9,7 +9,7 @@
                     <h1>Create Category</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a class="btn btn-primary" href="categories.html">Back</a>
+                    <a class="btn btn-primary" href="{{ url()->previous() }}">Back</a>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
             </div>
             <div class="pb-5 pt-3">
                 <button class="btn btn-primary" type="submit">Create</button>
-                <a class="btn btn-outline-dark ml-3" href="#">Cancel</a>
+                <a class="btn btn-outline-dark ml-3" href="{{ route('admin.dashboard') }}">Cancel</a>
             </div>
         </form>
         <!-- /.card -->
