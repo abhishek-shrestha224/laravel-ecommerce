@@ -20,10 +20,18 @@
         <!-- Default box -->
         <div class="container-fluid">
             <div class="card">
+                <p>
+                    {{ Session::get('msg') }}
+                </p>
                 <div class="card-header">
-                    <div class="card-tools">
+                    <a class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
+                        href="{{ route('categories.index') }}">
+                        Reset
+                    </a>
+                    <form class="card-tools" action="{{ route('categories.index') }}" method="GET">
+                        @csrf
                         <div class="input-group input-group" style="width: 250px;">
-                            <input class="form-control float-right" type="text" name="table_search" placeholder="Search">
+                            <input class="form-control float-right" type="text" name="keyword" placeholder="Search">
 
                             <div class="input-group-append">
                                 <button class="btn btn-default" type="submit">
@@ -31,7 +39,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="card-body table-responsive p-0">
                     <table class="table-hover text-nowrap table">

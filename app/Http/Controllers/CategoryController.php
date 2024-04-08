@@ -11,9 +11,14 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::latest()->paginate(10);
+        $categories = Category::latest();
+
+        if (!empty($request->get('keyword'))) {
+            $categories = $categories->where('name', 'like', '%' . $request->get('keyword') . '%');
+        }
+        $categories = $categories->paginate(10);
 
         return view('admin.category.index', compact('categories'));
     }
@@ -46,7 +51,7 @@ class CategoryController extends Controller
         $category->status = $request->status;
         $category->save();
 
-        return redirect()->route('admin.dashboard')->with('msg', 'New Category Created Sucessfully.');
+        return redirect()->route('categories.index')->with('msg', 'New Category Created Sucessfully.');
     }
 
     /**
