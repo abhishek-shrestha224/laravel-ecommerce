@@ -38,6 +38,13 @@ class CategoryController extends Controller
         if ($validator->fails()) {
             return redirect()->route('categories.create')->withErrors($validator)->withInput($request->only('name'));
         }
+        $category = new Category();
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->status = $request->status;
+        $category->save();
+
+        return redirect()->route('admin.dashboard')->with('msg', 'New Category Created Sucessfully.');
     }
 
     /**

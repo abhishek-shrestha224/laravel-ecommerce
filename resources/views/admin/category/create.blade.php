@@ -37,7 +37,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="slug">Slug</label>
-                                <input class="form-control" id="slug" type="text" name="slug" placeholder="Slug">
+                                <input class="form-control" id="slug" readonly type="text" name="slug" placeholder="Slug">
                                 @error('slug')
                                     <p class="text-accent text-sm">{{ $message }}</p>
                                 @enderror
@@ -74,4 +74,16 @@
     <script src="/admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/admin-assets/js/adminlte.min.js"></script>
+
+    <script>
+        const nameField = document.getElementById('name');
+        const slugField = document.getElementById('slug');
+
+        nameField.addEventListener('input', () => {
+            const name = nameField.value;
+            const slug = name.trim().toLowerCase().replaceAll(" ", "-");
+            // console.log(slug);
+            slugField.value = slug;
+        });
+    </script>
 @endsection
