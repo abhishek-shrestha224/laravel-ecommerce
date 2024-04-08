@@ -93,13 +93,7 @@
                     </table>
                 </div>
                 <div class="card-footer clearfix">
-                    <ul class="pagination pagination float-right m-0">
-                        <li class="page-item"><a class="page-link" href="#">«</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">»</a></li>
-                    </ul>
+                    {{ $categories->links() }}
                 </div>
             </div>
         </div>
@@ -109,9 +103,9 @@
 @endsection
 
 @section('script')
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="/admin-assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="js/adminlte.min.js"></script>
+    <script src="/admin-assets/js/adminlte.min.js"></script>
 @endsection

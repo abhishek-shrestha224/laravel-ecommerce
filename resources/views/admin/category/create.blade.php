@@ -37,7 +37,8 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="slug">Slug</label>
-                                <input class="form-control" id="slug" readonly type="text" name="slug" placeholder="Slug">
+                                <input class="form-control" id="slug" readonly type="text" name="slug"
+                                    placeholder="Slug">
                                 @error('slug')
                                     <p class="text-accent text-sm">{{ $message }}</p>
                                 @enderror
