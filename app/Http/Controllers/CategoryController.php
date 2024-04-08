@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -20,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -28,7 +29,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'slug' => 'required|unique:categories',
+            'status' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('categories.create')->withErrors($validator)->withInput($request->only('name'));
+        }
     }
 
     /**
