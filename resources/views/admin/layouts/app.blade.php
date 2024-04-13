@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="/admin-assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/admin-assets/css/adminlte.min.css">
-    <link rel="stylesheet" href="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.css') }}">
-
     <link rel="stylesheet" href="/admin-assets/css/custom.css">
 </head>
 
@@ -87,7 +85,6 @@
 
     </div>
     <!-- ./wrapper -->
-    <script src="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.js') }}"></script>
     @yield('script')
 </body>
 

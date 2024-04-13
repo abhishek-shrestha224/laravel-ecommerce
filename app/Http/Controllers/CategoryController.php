@@ -59,15 +59,16 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+       
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(Request $request,$categoryId)
     {
-        //
+        $category= Category::findOrFail($categoryId);
+        return view("admin.category.edit",compact('category'));
     }
 
     /**

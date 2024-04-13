@@ -26,7 +26,8 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="name">Name</label>
-                                <input class="form-control" id="name" type="text" name="name" placeholder="Name">
+                                <input class="form-control" id="name" type="text" name="name" placeholder="Name"
+                                    value="{{ $category->name }}">
                                 <div class="w-full">
                                     @error('name')
                                         <p class="text-accent text-sm">{{ $message }}</p>
@@ -38,7 +39,7 @@
                             <div class="mb-3">
                                 <label for="slug">Slug</label>
                                 <input class="form-control" id="slug" readonly type="text" name="slug"
-                                    placeholder="Slug">
+                                    placeholder="Slug" value="{{ $category->slug }}">
                                 @error('slug')
                                     <p class="text-accent text-sm">{{ $message }}</p>
                                 @enderror
@@ -49,8 +50,8 @@
                             <div class="mb-3">
                                 <label for="email">Status</label>
                                 <select class="form-control" id="status" name="status" placeholder="Slug">
-                                    <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
+                                    <option {{ $category['status'] == 1 ? 'selected' : '' }} value="1">Active</option>
+                                    <option {{ $category['status'] == 0 ? 'selected' : '' }} value="2">Inactive</option>
                                 </select>
                                 @error('status')
                                     <p class="text-accent text-sm">{{ $message }}</p>

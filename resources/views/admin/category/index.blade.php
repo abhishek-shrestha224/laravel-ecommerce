@@ -70,7 +70,7 @@
 
                                         </td>
                                         <td>
-                                            <a href="#">
+                                            <a href="{{ route('categories.edit', $category->id) }}">
                                                 <svg class="filament-link-icon mr-1 h-4 w-4"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                     fill="currentColor" aria-hidden="true">
