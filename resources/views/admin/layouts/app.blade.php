@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/admin-assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/admin-assets/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.css') }}">
+
     <link rel="stylesheet" href="/admin-assets/css/custom.css">
 </head>
 
@@ -56,7 +58,7 @@
                             <i class="fas fa-lock mr-2"></i> Change Password
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="{{route("admin.logout")}}">
+                        <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}">
                             <i class="fas fa-sign-out-alt mr-2"></i> Logout
                         </a>
                     </div>
@@ -80,13 +82,12 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-
             <strong>Copyright &copy; 2014-2022 AmazingShop All rights reserved.
         </footer>
 
     </div>
     <!-- ./wrapper -->
-    <!-- jQuery -->
+    <script src="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.js') }}"></script>
     @yield('script')
 </body>
 
