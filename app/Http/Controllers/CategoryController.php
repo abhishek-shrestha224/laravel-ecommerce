@@ -43,7 +43,7 @@ class CategoryController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('categories.create')->withErrors($validator)->withInput($request->only('name'));
+            return redirect()->route('categories.create')->withErrors($validator)->withInput($request->only('name', 'status'));
         }
         $category = new Category();
         $category->name = $request->name;
@@ -59,24 +59,40 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-       
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request,$categoryId)
+    public function edit(Request $request, $categoryId)
     {
-        $category= Category::findOrFail($categoryId);
-        return view("admin.category.edit",compact('category'));
+        $category = Category::findOrFail($categoryId);
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $categoryId)
     {
-        //
+        $category = Category::findOrFail($categoryId);
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'slug' => 'required|unique:categories,slug,' . $category->id,
+            'status' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('categories.index')->withErrors($validator)->withInput($request->only('name'));
+        }
+
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->status = $request->status;
+        $category->save();
+
+        return redirect()->route('categories.index')->with('msg', 'Category Updated Sucessfully.');
     }
 
     /**

@@ -18,7 +18,8 @@
     <!-- Main content -->
     <section class="content">
         <!-- Default box -->
-        <form class="container-fluid" id="category-form" method="POST" action="{{ route('categories.store') }}">
+        <form class="container-fluid" id="category-form" method="POST"
+            action="{{ route('categories.update', $category->id) }}">
             @csrf
             <div class="card">
                 <div class="card-body">
@@ -51,7 +52,8 @@
                                 <label for="email">Status</label>
                                 <select class="form-control" id="status" name="status" placeholder="Slug">
                                     <option {{ $category['status'] == 1 ? 'selected' : '' }} value="1">Active</option>
-                                    <option {{ $category['status'] == 0 ? 'selected' : '' }} value="2">Inactive</option>
+                                    <option {{ $category['status'] == 0 ? 'selected' : '' }} value="2">Inactive
+                                    </option>
                                 </select>
                                 @error('status')
                                     <p class="text-accent text-sm">{{ $message }}</p>
@@ -62,7 +64,7 @@
                 </div>
             </div>
             <div class="pb-5 pt-3">
-                <button class="btn btn-primary" type="submit">Create</button>
+                <button class="btn btn-primary" type="submit">Update</button>
                 <a class="btn btn-outline-dark ml-3" href="{{ url()->previous() }}">Cancel</a>
             </div>
         </form>
