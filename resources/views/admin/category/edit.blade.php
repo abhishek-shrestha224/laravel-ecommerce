@@ -26,6 +26,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
+
                                 <label for="name">Name</label>
                                 <input class="form-control" id="name" type="text" name="name" placeholder="Name"
                                     value="{{ $category->name }}">
@@ -73,12 +74,6 @@
 @endsection
 
 @section('script')
-    <script src="/admin-assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="/admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/admin-assets/js/adminlte.min.js"></script>
-
     <script>
         const nameField = document.getElementById('name');
         const slugField = document.getElementById('slug');
@@ -86,7 +81,6 @@
         nameField.addEventListener('input', () => {
             const name = nameField.value;
             const slug = name.trim().toLowerCase().replaceAll(" ", "-");
-            // console.log(slug);
             slugField.value = slug;
         });
     </script>

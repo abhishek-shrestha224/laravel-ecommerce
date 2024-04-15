@@ -85,6 +85,12 @@
 
     </div>
     <!-- ./wrapper -->
+
+    <script src="/admin-assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/admin-assets/js/adminlte.min.js"></script>
     @yield('script')
 </body>
 
