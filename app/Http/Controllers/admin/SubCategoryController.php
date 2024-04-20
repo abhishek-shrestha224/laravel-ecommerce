@@ -22,7 +22,7 @@ class SubCategoryController extends Controller
         }
         $categories = $categories->paginate(10);
 
-        return view('admin.category.index', compact('categories'));
+        return view('admin.sub-category.index', compact('categories'));
     }
 
     /**
@@ -30,7 +30,8 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $categories = Category::orderBy('name', 'ASC')->get();
+        return view('admin.sub-category.create', ['categories' => $categories]);
     }
 
     /**
