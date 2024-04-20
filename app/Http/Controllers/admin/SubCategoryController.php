@@ -4,8 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class SubCategoryController extends Controller
@@ -15,14 +15,15 @@ class SubCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = Category::latest();
+        $subCategories = SubCategory::select('sub_categories.*', 'categories.name as categoryName')->latest('id')->leftJoin('categories', 'categories.id', 'sub_categories.id');
 
         if (!empty($request->get('keyword'))) {
-            $categories = $categories->where('name', 'like', '%' . $request->get('keyword') . '%');
+            $subCategories = $subCategories->where('name', 'like', '%' . $request->get('keyword') . '%');
         }
-        $categories = $categories->paginate(10);
 
-        return view('admin.sub-category.index', compact('categories'));
+        $subCategories = $subCategories->paginate(10);
+
+        return view('admin.sub-category.index', ['subCategories' => $subCategories]);
     }
 
     /**
@@ -42,19 +43,22 @@ class SubCategoryController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'slug' => 'required|unique:categories',
+            'category' => 'required',
             'status' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('categories.create')->withErrors($validator)->withInput($request->only('name', 'status'));
+            return redirect()->route('sub-categories.create')->withErrors($validator)->withInput($request->only('name', 'status'));
         }
-        $category = new Category();
-        $category->name = $request->name;
-        $category->slug = $request->slug;
-        $category->status = $request->status;
-        $category->save();
 
-        return redirect()->route('categories.index')->with('msg', 'New Category Created Sucessfully.');
+        $subCategory = new SubCategory();
+        $subCategory->name = $request->name;
+        $subCategory->slug = $request->slug;
+        $subCategory->status = $request->status;
+        $subCategory->category_id = $request->category;
+        $subCategory->save();
+
+        return redirect()->route('sub-categories.index')->with('msg', 'New Sub Category Created Sucessfully.');
     }
 
     /**
