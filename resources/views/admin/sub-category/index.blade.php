@@ -6,10 +6,10 @@
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Categories</h1>
+                    <h1>SubCategories</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a class="btn btn-primary" href="{{ route('categories.create') }}">New Category</a>
+                    <a class="btn btn-primary" href="{{ route('sub-categories.create') }}">New Sub Category</a>
                 </div>
             </div>
         </div>
@@ -47,6 +47,7 @@
                             <tr>
                                 <th width="60">ID</th>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Slug</th>
                                 <th width="100">Status</th>
                                 <th width="100">Action</th>
@@ -59,6 +60,7 @@
                                     <tr>
                                         <td>{{ $subCategory->id }}</td>
                                         <td>{{ $subCategory->name }}</td>
+                                        <td>{{ $subCategory->categoryName }}</td>
                                         <td>{{ $subCategory->slug }}</td>
                                         <td>
 
@@ -70,7 +72,7 @@
 
                                         </td>
                                         <td>
-                                            <a href="{{ route('categories.edit', $subCategory->id) }}">
+                                            <a href="{{ route('sub-categories.edit', $subCategory->id) }}">
                                                 <svg class="filament-link-icon mr-1 h-4 w-4"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                     fill="currentColor" aria-hidden="true">
@@ -81,7 +83,8 @@
                                             </a>
 
                                             <form class="text-danger mr-1 h-4 w-4" href="#"
-                                                action="{{ route('categories.destroy', $subCategory->id) }}" method="POST">
+                                                action="{{ route('sub-categories.destroy', $subCategory->id) }}"
+                                                method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button>

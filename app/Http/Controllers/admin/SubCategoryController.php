@@ -15,7 +15,7 @@ class SubCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $subCategories = SubCategory::select('sub_categories.*', 'categories.name as categoryName')->latest('id')->leftJoin('categories', 'categories.id', 'sub_categories.id');
+        $subCategories = SubCategory::select('sub_categories.*', 'categories.name as categoryName')->latest('id')->leftJoin('categories', 'categories.id', 'sub_categories.category_id');
 
         if (!empty($request->get('keyword'))) {
             $subCategories = $subCategories->where('name', 'like', '%' . $request->get('keyword') . '%');
@@ -71,10 +71,11 @@ class SubCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, $categoryId)
+    public function edit(Request $request, $subCategoryId)
     {
-        $category = Category::findOrFail($categoryId);
-        return view('admin.category.edit', compact('category'));
+        $subCategory = SubCategory::findOrFail($subCategoryId);
+        $categories = Category::orderBy('name', 'ASC')->get();
+        return view('admin.sub-category.edit', ['subCategory' => $subCategory, 'categories' => $categories]);
     }
 
     /**

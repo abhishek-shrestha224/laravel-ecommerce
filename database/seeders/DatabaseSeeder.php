@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
             'password' => 'secret',
             'role' => 2,
         ]);
-        Category::factory(50)->create();
+        // Category::factory(50)->create();
     }
 }
