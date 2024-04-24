@@ -18,7 +18,7 @@ class SubCategoryController extends Controller
         $subCategories = SubCategory::select('sub_categories.*', 'categories.name as categoryName')->latest('id')->leftJoin('categories', 'categories.id', 'sub_categories.category_id');
 
         if (!empty($request->get('keyword'))) {
-            $subCategories = $subCategories->where('name', 'like', '%' . $request->get('keyword') . '%');
+            $subCategories = $subCategories->where('sub_categories.name', 'like', '%' . $request->get('keyword') . '%');
         }
 
         $subCategories = $subCategories->paginate(10);

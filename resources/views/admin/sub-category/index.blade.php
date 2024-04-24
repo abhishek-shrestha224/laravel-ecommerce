@@ -28,7 +28,7 @@
                         href="{{ route('categories.index') }}">
                         Reset
                     </a>
-                    <form class="card-tools" action="{{ route('categories.index') }}" method="GET">
+                    <form class="card-tools" action="{{ route('sub-categories.index') }}" method="GET">
                         @csrf
                         <div class="input-group input-group" style="width: 250px;">
                             <input class="form-control float-right" type="text" name="keyword" placeholder="Search">
@@ -103,7 +103,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="5">No Category Found</td>
+                                    <td colspan="5">No Sub Category Found</td>
                                 </tr>
                             @endif
 
