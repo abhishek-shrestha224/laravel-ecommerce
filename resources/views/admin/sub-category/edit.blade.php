@@ -18,7 +18,8 @@
     <!-- Main content -->
     <section class="content">
         <!-- Default box -->
-        <form class="container-fluid" id="category-form" method="POST">
+        <form class="container-fluid" id="category-form" method="POST"
+            action="{{ route('sub-categories.update', $subCategory->id) }}">
             @csrf
             <div class="container-fluid">
                 <div class="card">
@@ -93,7 +94,7 @@
                     </div>
                 </div>
                 <div class="pb-5 pt-3">
-                    <button class="btn btn-primary" type="submit">Create</button>
+                    <button class="btn btn-primary" type="submit">Update</button>
                     <a class="btn btn-outline-dark ml-3" href="{{ url()->previous() }}">Cancel</a>
                 </div>
             </div>

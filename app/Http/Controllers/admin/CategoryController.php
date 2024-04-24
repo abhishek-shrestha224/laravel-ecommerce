@@ -85,7 +85,7 @@ class CategoryController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('categories.index')->withErrors($validator)->withInput($request->only('name'));
+            return redirect()->route('categories.edit', $categoryId)->withErrors($validator)->withInput($request->only('name'));
         }
 
         $category->name = $request->name;

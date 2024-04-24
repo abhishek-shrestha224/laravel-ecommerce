@@ -42,7 +42,7 @@ class SubCategoryController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'slug' => 'required|unique:categories',
+            'slug' => 'required|unique:sub_categories',
             'category' => 'required',
             'status' => 'required',
         ]);
@@ -81,26 +81,28 @@ class SubCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $categoryId)
+    public function update(Request $request, $subCategoryId)
     {
-        $category = Category::findOrFail($categoryId);
+        $subCategory = SubCategory::findOrFail($subCategoryId);
 
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'slug' => 'required|unique:categories,slug,' . $category->id,
+            'slug' => 'required|unique:sub_categories,slug,' . $subCategory->id,
+            'category' => 'required',
             'status' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('categories.index')->withErrors($validator)->withInput($request->only('name'));
+            return redirect()->route('sub-categories.edit', $subCategoryId)->withErrors($validator)->withInput($request->only('name'));
         }
 
-        $category->name = $request->name;
-        $category->slug = $request->slug;
-        $category->status = $request->status;
-        $category->save();
+        $subCategory->name = $request->name;
+        $subCategory->slug = $request->slug;
+        $subCategory->status = $request->status;
+        $subCategory->category_id = $request->category;
+        $subCategory->save();
 
-        return redirect()->route('categories.index')->with('msg', 'Category Updated Sucessfully.');
+        return redirect()->route('sub-categories.index')->with('msg', 'Sub Category Updated Sucessfully.');
     }
 
     /**
